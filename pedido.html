@@ -4,10 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dads Pizza - Pedidos</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="estilo3.css" />
 </head>
 
-<body>
+<div id="icone-carrinho" onclick="mostrarCarrinho()">
+  🛍️ <span id="contador-carrinho">0</span>
+</div>
+
+<div id="carrinho" style="display:none;">
+  <h3>Carrinho (<span id="contador-carrinho">0</span> itens)</h3>
+  <div id="itens-carrinho">Itens </div>
+</div>
+
+
   <header>
     <nav class="topo">
       <ul>
@@ -16,12 +25,12 @@
         <li><a href="#">Cardápio</a></li>
         <li><a href="#">Contato</a></li>
       </ul>
-      <img src="logo.png" alt="Logo Dads Pizza" class="logo2" />
+      <img src="logotipo.png" alt="Logo Dads Pizza" class="logo2" />
     </nav>
   </header>
 
   <main class="conteudo">
-    <h1>FAÇA SEU PEDIDO</h1>
+    <h1>FAÇA SEU PEDIDO! 💛🍔🥤</h1>
    
     <div class="botoes">
       <button onclick="mostrarCategoria('lanches')">Lanches</button>
@@ -33,22 +42,146 @@
 
     <div id="itens">
       <div class="categoria" id="lanches">
-        <div class="item">
-          <img src="xburguer.jpg" alt="X-Burguer">
-          <p>X-Burguer    20,00</p>
-          <p class="descricao">Hambúrguer com queijo, alface, tomate e maionese especial.</p>
-          
-           <button onclick="mostrarFormulario(this, 'X-Burguer')">Fazer pedido</button>
-            <div class="formulariodopedido" style="display: none;">
-            <input type="text" placeholder="Nome" class="nome" />
-            <input type="text" placeholder="Seu endereço" class="endereco" />
-            <input type="number" min="1" value="1" class="quantidade" />
-            <button onclick="confirmarPedido(this)">Confirmar Pedido</button>
-</div>
+  <p>HAMBÚRGUER</p>
+  <div class="item">
+     <p>Vegetariano</p>
+    <p>Pão,Ovo,Queijo– R$ 10,00</p>
+    <button onclick="mostrarFormulario(this, 'Pão, Mussarela e Presunto')">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+       <button onclick="adicionarAoCarrinho('Vegetariano', 10.00, this)">Adicionar ao Carrinho</button>
 
- </div>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
 
-      
+  <div class="item">
+     <p>HAMBÚRGUER simples</p>
+    <p>Pão e Bife – R$ 13,00</p>
+    <button onclick="mostrarFormulario(this, 'Pão e Bife')">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+         <button onclick="adicionarAoCarrinho('Hamburguer simples', 13.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+     <p>X-BURGUER</p>
+    <p>Pão, Bife e Queijo – R$ 15,00</p>
+    <button onclick="mostrarFormulario(this, 'Pão, Bife e Queijo')">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+           <button onclick="adicionarAoCarrinho('X-BURGUER', 15.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>BACON-BURGUER</p>
+    <p>Pão, Bife e Bacon – R$ 15,00</p>
+    <button onclick="mostrarFormulario(this, 'Pão, Bife e Bacon')">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+           <button onclick="adicionarAoCarrinho('BACON-BURGUER', 15.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>EGG-BURGUER</p>
+    <p>Pão, Bife, Ovo  – R$ 15,00</p>
+    <button onclick="mostrarFormulario(this, 'Pão, Bife, Ovo ')">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+      <button onclick="adicionarAoCarrinho('EGG-BURGUER', 15.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+  
+  <div class="item">
+    <p>X-EGG</p>
+    <p>Pão, Bife, Ovo e Queijo – R$ 16,00</p>
+    <button onclick="mostrarFormulario(this, 'Pão, Bife, Ovo e Queijo')">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+     <button onclick="adicionarAoCarrinho('X-EGG', 16.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>X-Burguer – R$ 20,00</p>
+    <button onclick="mostrarFormulario(this, 'X-Burguer')">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+        <button onclick="adicionarAoCarrinho('X-BURGUER', 20.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>X-Tudo – R$ 20,00</p>
+    <button onclick="mostrarFormulario(this, 'X-Tudo')">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+       <button onclick="adicionarAoCarrinho('X-TUDO', 20.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+  
+  <div class="item">
+    <p>Dad’s Furioso – R$ 20,00</p>
+    <button onclick="mostrarFormulario(this, 'Dad’s Furioso')">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+         <button onclick="adicionarAoCarrinho('Dad’s Furioso ', 20.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>Dad’s Guloso – R$ 26,00</p>
+    <button onclick="mostrarFormulario(this, 'Dad’s Guloso')">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+       <button onclick="adicionarAoCarrinho('Dad’s Guloso ', 20.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>Dad’s Super – R$ 24,00</p>
+    <button onclick="mostrarFormulario(this, 'Dad’s Super')">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+      <button onclick="adicionarAoCarrinho('Dad’s Super ', 24.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+  
    <div class="item">
     <img src="xtudo.jpg" alt="X-Tudo">
     <p>X-Tudo – R$ 25,00</p>
@@ -59,156 +192,519 @@
             <input type="text" placeholder="Nome" class="nome" />
             <input type="text" placeholder="Seu endereço" class="endereco" />
             <input type="number" min="1" value="1" class="quantidade" />
-            <button onclick="confirmarPedido(this)">Confirmar Pedido</button>
+          <button onclick="adicionarAoCarrinho('X-Tudo ', 25.00, this)">Adicionar ao Carrinho</button>
     </div>
   </div>
   </div>
   
 
-      <div class="categoria" id="pizzas">
+      <divMAIL  class="categoria" id="pizzas">
         <div class="item">
           <img src="pizza.png" alt="Pizza Calabresa">
-          <p>Pizza Calabresa TAM G  70,00</p>
-            <p class="descricao">Pizza Calabresa  Tam G– Molho de tomate, mussarela, calabresa fatiada, cebola e orégano
+          <p>Pizza Calabresa </p>
+            <p class="descricao">Pizza Calabresa  : Molho de tomate, mussarela, calabresa fatiada, cebola e orégano
              </p>
-                  <button onclick="mostrarFormulario(this, 'pizzacalabreza')">Fazer pedido</button>
+                <button onclick="mostrarFormulario(this, 'Pizza Calabreza')">Fazer pedido</button>
                 <div class="formulariodopedido" style="display: none;">
                 <input type="text" placeholder="Nome" class="nome" />
                 <input type="text" placeholder="Seu endereço" class="endereco" />
                 <input type="number" min="1" value="1" class="quantidade" />
-                <button onclick="confirmarPedido(this)">Confirmar Pedido</button>
-    </div>
-        </div>
+                <select class="tamanho">
+                <option value="P">Pequena (R$ 30,00)</option>
+                <option value="M">Média (R$ 40,00)</option>
+                <option value="G">Grande (R$ 50,00)</option>
+                </select>
+                
+                <button onclick="adicionarPizza(this, 'Pizza Calabresa')">Adicionar ao Carrinho</button>
+                <button onclick="this.parentElement.style.display='none'">Cancelar</button>
+  </div>
+  </div>
+
         
          <div class="item">
           <img src="pizza4queijos.jpg" alt="Pizza quatroqueijos">
-          <p>Pizza Quatro Queijos TAM G 70,00</p>
-         <p class= "descricao" >Molho de tomate, mussarela, presunto, ovo cozido, cebola, pimentão, azeitonas e orégano
-         </p>
+          <p>Pizza Quatro Queijos </p>
+         <p class= "descricao" >Molho de tomate, mussarela, presunto, ovo cozido, cebola, pimentão, azeitonas e orégano </p>
           <button onclick="mostrarFormulario(this, 'pizza4queijos')">Fazer pedido</button>
             <div class="formulariodopedido" style="display: none;">
              <input type="text" placeholder="Nome" class="nome" />
             <input type="text" placeholder="Seu endereço" class="endereco" />
             <input type="number" min="1" value="1" class="quantidade" />
-            <button onclick="confirmarPedido(this)">Confirmar Pedido</button>
+            <select class="tamanho">
+                <option value="P">Pequena (R$ 30,00)</option>
+                <option value="M">Média (R$ 40,00)</option>
+                <option value="G">Grande (R$ 50,00)</option>
+                </select>
+            <button onclick="adicionarAoCarrinho('Pizza 4 Queijos', 25.00, this)">Adicionar ao Carrinho</button>
     </div>
-        </div>
+    </div>
+        
         <div class="item">
           <img src="pizzaportuguesa.jpg" alt="Pizza Portuguesa">
-          <p>Pizza Portuguesa  TAM G 70,00</p>
+          <p>Pizza Portuguesa  </p>
             <p class="descrição" > Molho de tomate, mussarela, presunto, ovo cozido, cebola, pimentão, azeitonas e orégano></p>
             <button onclick="mostrarFormulario(this, 'pizzaportuguesa')">Fazer pedido</button>
              <div class="formulariodopedido" style="display: none;">
               <input type="text" placeholder="Nome" class="nome" />
             <input type="text" placeholder="Seu endereço" class="endereco" />
             <input type="number" min="1" value="1" class="quantidade" />
+            <select class="tamanho">
+                <option value="P">Pequena (R$ 30,00)</option>
+                <option value="M">Média (R$ 40,00)</option>
+                <option value="G">Grande (R$ 50,00)</option>
+                </select>
             <button onclick="confirmarPedido(this)">Confirmar Pedido</button>
     </div>
         </div>
-      </div>
-
-      <div class="categoria" id="fritas">
-        <div class="item">
-          <img src="fritas.jpg" alt="Fritas">
-          <p>Fritas    23.00</p>
-            <p class="descrição" > Batata palito preparada com óleo vegetal e bacon acompanhada de molho especial da casa </p>
-           <button onclick="mostrarFormulario(this, 'fritas')">Fazer pedido</button>
-            <div class="formulariodopedido" style="display: none;">
-            <input type="text" placeholder="Nome" class="nome" />
-            <input type="text" placeholder="Seu endereço" class="endereco" />
-            <input type="number" min="1" value="1" class="quantidade" />
-            <button onclick="confirmarPedido(this)">Confirmar Pedido</button>
-
-        </div>
-        </div>
-       </div>
-
-      <div class="categoria" id="omeletes">
-        <div class="item">
-          <img src="omelete.jpg" alt="Omelete">
-          <p>Omelete   SERVE 2 PESSOAS 24,00</p>
-          <p class="descrição"> Ovos batidos recheados com presunto, mussarela, tomate, cebola e orégano e bacon  </p>
-           <button onclick="mostrarFormulario(this, 'omeletes')">Fazer pedido</button>
-
-             <div class="formulariodopedido" style="display: none;">
-              <input type="text" placeholder="Nome" class="nome" />
-              <input type="text" placeholder="Seu endereço" class="endereco" />
-              <input type="number" min="1" value="1" class="quantidade" />
-              <button onclick="confirmarPedido(this)">Confirmar Pedido</button>
-      
-        </div>
-        </div>
-      </div>
-
-      <div class="categoria" id="bebidas">
-        <div class="item">
-          <img src="suco.jpg" alt="Suco">
-          <p>Suco    5,00</p>
-             <button onclick="mostrarFormulario(this, 'suco')">Fazer pedido</button>
-             <div class="formulariodopedido" style="display: none;">
-              <input type="text" placeholder="Nome" class="nome" />
-            <input type="text" placeholder="Seu endereço" class="endereco" />
-            <input type="number" min="1" value="1" class="quantidade" />
-            <button onclick="confirmarPedido(this)">Confirmar Pedido</button>
-          </div>
-        </div>
-      
-        <div class="item">
-          <img src="cocacola.jpg" alt="Coca-cola">
-          <p>Refrigerante Coca-cola  2 litros  10,00</p>
-          <button onclick="mostrarFormulario(this, 'cocacola')">Fazer pedido</button>
-             <div class="formulariodopedido" style="display: none;">
-              <input type="text" placeholder="Nome" class="nome" />
-            <input type="text" placeholder="Seu endereço" class="endereco" />
-            <input type="number" min="1" value="1" class="quantidade" />
-            <button onclick="confirmarPedido(this)">Confirmar Pedido</button>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <script>
-    function mostrarCategoria(categoria) {
-      const categorias = document.querySelectorAll(".categoria");
-      categorias.forEach(cat => {
-        cat.style.display = "none";
-      });
-
-      const selecionado = document.getElementById(categoria);
-      if (selecionado) {
-        selecionado.style.display = "flex";
-      }
     
+
+<div class="categoria" id="pizzas">
+  <div class="item">
+    <p>Pizza Mussarela </p>
+    <p class="descricao">Mussarela, tomate, cebola, orégano e molho</p>
+    <button onclick="mostrarFormulario(this, 'Pizza Mussarela', 52.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+      <select class="tamanho">
+                <option value="P">Pequena (R$ 30,00)</option>
+                <option value="M">Média (R$ 40,00)</option>
+                <option value="G">Grande (R$ 50,00)</option>
+                </select>
+      <button onclick="adicionarAoCarrinho('Pizza Mussarela', 52.00, this.parentElement.querySelector('.quantidade').value)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>Pizza Portuguesa </p>
+    <p class="descricao">Mussarela, presunto, calabresa, bacon, ovo, azeitona e pimentão</p>
+    <button onclick="mostrarFormulario(this, 'Pizza Portuguesa', 62.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+      <select class="tamanho">
+                <option value="P">Pequena (R$ 30,00)</option>
+                <option value="M">Média (R$ 40,00)</option>
+                <option value="G">Grande (R$ 50,00)</option>
+                </select>
+      <button onclick="adicionarAoCarrinho('Pizza Portuguesa', 62.00, this.parentElement.querySelector('.quantidade').value)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>Pizza 4 Queijos com Brócolis</p>
+    <p class="descricao">Mussarela, parmesão, provolone, catupiry, brócolis</p>
+    <button onclick="mostrarFormulario(this, 'Pizza 4 Queijos com Brócolis', 66.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+      <select class="tamanho">
+                <option value="P">Pequena (R$ 30,00)</option>
+                <option value="M">Média (R$ 40,00)</option>
+                <option value="G">Grande (R$ 50,00)</option>
+                </select>
+      <button onclick="adicionarAoCarrinho('Pizza 4 Queijos com Brócolis', 66.00, this.parentElement.querySelector('.quantidade').value)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>Pizza Brigadeiro </p>
+    <p class="descricao">Chocolate e granulado</p>
+    <button onclick="mostrarFormulario(this, 'Pizza Brigadeiro', 54.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+      <select class="tamanho">
+                <option value="P">Pequena (R$ 30,00)</option>
+                <option value="M">Média (R$ 40,00)</option>
+                <option value="G">Grande (R$ 50,00)</option>
+                </select>
+      <button onclick="adicionarAoCarrinho('Pizza Brigadeiro', 54.00, this.parentElement.querySelector('.quantidade').value)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="categoria" id="omeletes">
+ <p class="descricao">Todos os omeletes são preparados com 4 ovos e acompanham salada fresca de alface com tomate.</p>
+   <div class="item">
+
+    <p>Omelete de Mussarela – R$ 18,00</p>
+    <p class="descricao">Recheado com mussarela. Acompanha salada.</p>
+    <button onclick="mostrarFormulario(this, 'Omelete de Mussarela', 18.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+       <button onclick="adicionarAoCarrinho('Omelete de Mussarela', 18.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>Omelete de Bacon com Mussarela – R$ 18,00</p>
+    <p class="descricao">Recheado com bacon e mussarela. Acompanha salada.</p>
+    <button onclick="mostrarFormulario(this, 'Omelete de Bacon com Mussarela', 18.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+       <button onclick="adicionarAoCarrinho('Omelete de Mussarela', 18.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>Omelete de Mussarela e Palmito – R$ 18,00</p>
+    <p class="descricao">Recheado com mussarela e palmito. Acompanha salada.</p>
+    <button onclick="mostrarFormulario(this, 'Omelete de Mussarela e Palmito', 18.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+      <button onclick="adicionarAoCarrinho('Omelete de Mussarela  e palmito', 18.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>Omelete de Mussarela e Presunto – R$ 18,00</p>
+    <p class="descricao">Recheado com mussarela e presunto. Acompanha salada.</p>
+    <button onclick="mostrarFormulario(this, 'Omelete de Mussarela e Presunto', 18.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+       <button onclick="adicionarAoCarrinho('Omelete de Mussarela e Presunto', 18.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>Omelete de Frango com Catupiry – R$ 18,00</p>
+    <p class="descricao">Recheado com frango desfiado e catupiry. Acompanha salada.</p>
+    <button onclick="mostrarFormulario(this, 'Omelete de Frango com Catupiry', 18.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+        <button onclick="adicionarAoCarrinho('Omelete de Frango com Catupiry', 18.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>Omelete de Calabresa com Mussarela – R$ 18,00</p>
+    <p class="descricao">Recheado com calabresa e mussarela. Acompanha salada.</p>
+    <button onclick="mostrarFormulario(this, 'Omelete de Calabresa com Mussarela', 18.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+       <button onclick="adicionarAoCarrinho('Omelete de Calabresa Mussarela', 18.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>Omelete de Frango com Palmito – R$ 20,00</p>
+    <p class="descricao">4 ovos, frango desfiado, palmito e salada</p>
+    <button onclick="mostrarFormulario(this, 'Omelete de Frango com Palmito', 20.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+      <button onclick="adicionarAoCarrinho('Omelete de Frango com Palmito', 20.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Categoria: Bebidas -->
+<div class="categoria" id="bebidas">
+    
+  <div class="item">
+    <p>Refrigerante Lata – R$ 6,00</p>
+    <p class="descricao">Coca-Cola, Guaraná, Fanta</p>
+    <button onclick="mostrarFormulario(this, 'Refrigerante Lata', 10.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+      <button onclick="adicionarAoCarrinho('Refrigerante Lata', 6.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+  <div class="item">
+    <p>Suco Natural – R$ 9,00</p>
+    <p class="descricao">Sabores: Maracujá, Morango, Acerola, Abacaxi, Abacaxi com Hortelã, Caju, Limão, Manga, Açaí, Graviola</p>
+    <button onclick="mostrarFormulario(this, 'Suco Natural', 9.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+      <button onclick="adicionarAoCarrinho('Suco Natural', 9.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>Suco com Leite – R$ 10,00</p>
+    <p class="descricao">Sabores: Caju, Limão, Manga, Açaí, Graviola</p>
+    <button onclick="mostrarFormulario(this, 'Suco com Leite', 10.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+      <button onclick="adicionarAoCarrinho('Suco com Leite', 10.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>Refrigerante 600ml – R$ 8,00</p>
+    <button onclick="mostrarFormulario(this, 'Refrigerante 600ml', 6.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+      <button onclick="adicionarAoCarrinho('Refrigerante 600ml', 8.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+
+  <div class="item">
+    <p>Refrigerante 1L – R$ 10,00</p>
+    <button onclick="mostrarFormulario(this, 'Refrigerante 1L', 10.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+      <button onclick="adicionarAoCarrinho('Refrigerante 1L', 10.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>Refrigerante 2L – R$ 14,00</p>
+    <p class="descricao">Coca-Cola, Guaraná, Fanta (normal ou zero)</p>
+    <button onclick="mostrarFormulario(this, 'Refrigerante 2L', 15.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+      <button onclick="adicionarAoCarrinho('Refrigerante 2L', 14.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>Água Mineral – R$ 3,00</p>
+    <p class="descricao">Com ou sem gás</p>
+    <button onclick="mostrarFormulario(this, 'Água Mineral', 3.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+      <button onclick="adicionarAoCarrinho('Água Mineral', 3.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>Cerveja Latão – R$ 9,00</p>
+    <button onclick="mostrarFormulario(this, 'Cerveja Latão', 9.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+      <button onclick="adicionarAoCarrinho('Cerveja Latão', 9.00, this)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="categoria" id="fritas">
+  <div class="item">
+    <p>Fritas Simples – R$ 18,00</p>
+    <p class="descricao">400g de batata frita</p>
+    <button onclick="mostrarFormulario(this, 'Fritas Simples', 18.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+      <button onclick="adicionarAoCarrinho('Fritas Simples', 18.00, this.parentElement.querySelector('.quantidade').value)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>Fritas com Queijo – R$ 23,00</p>
+    <p class="descricao">400g de batata frita com mussarela, catupiry ou cheddar</p>
+    <button onclick="mostrarFormulario(this, 'Fritas com Queijo', 23.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+      <button onclick="adicionarAoCarrinho('Fritas com Queijo', 23.00, this.parentElement.querySelector('.quantidade').value)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>Fritas com Bacon – R$ 23,00</p>
+    <p class="descricao">400g de batata frita com bacon</p>
+    <button onclick="mostrarFormulario(this, 'Fritas com Bacon', 23.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+      <button onclick="adicionarAoCarrinho('Fritas com Bacon', 23.00, this.parentElement.querySelector('.quantidade').value)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>Fritas com Calabresa – R$ 23,00</p>
+    <p class="descricao">400g de batata frita com calabresa</p>
+    <button onclick="mostrarFormulario(this, 'Fritas com Calabresa', 23.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+      <button onclick="adicionarAoCarrinho('Fritas com Calabresa', 23.00, this.parentElement.querySelector('.quantidade').value)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <p>Fritas com Bacon e Queijo – R$ 28,00</p>
+    <p class="descricao">400g de batata frita com bacon e cheddar ou catupiry</p>
+    <button onclick="mostrarFormulario(this, 'Fritas com Bacon e Queijo', 28.00)">Fazer pedido</button>
+    <div class="formulariodopedido" style="display: none;">
+      <input type="text" placeholder="Nome" class="nome" />
+      <input type="text" placeholder="Seu endereço" class="endereco" />
+      <input type="number" min="1" value="1" class="quantidade" />
+      <button onclick="adicionarAoCarrinho('Fritas com Bacon e Queijo', 28.00, this.parentElement.querySelector('.quantidade').value)">Adicionar ao Carrinho</button>
+      <button onclick="fecharFormulario(this)">Cancelar</button>
+    </div>
+  </div>
+</div>  
+</div>
+</main>
+ 
+  <script>
+  function mostrarCategoria(categoria) {
+  const categorias = document.querySelectorAll(".categoria");
+  categorias.forEach(cat => cat.style.display = "none");
+
+  const selecionado = document.getElementById(categoria);
+  if (selecionado) {
+    selecionado.style.display = "flex"; // ou "block", dependendo do seu CSS
+  }
 }
-  function fazerPedido(nome) {
-  alert("Você pediu: " + nome+ "  Pedido realizado com sucesso!");
-    }
-    function mostrarFormulario(botao, item) {
+
+function mostrarFormulario(botao, item) {
+    
   const itemDiv = botao.parentElement;
   const formulario = itemDiv.querySelector(".formulariodopedido");
 
- 
+  // Esconde todos os formulários antes de mostrar o atual
   document.querySelectorAll(".formulariodopedido").forEach(f => f.style.display = "none");
+
   formulario.style.display = "block";
   formulario.dataset.item = item;
 }
 
-function confirmarPedido(botao) {
-  const form = botao.parentElement;
-  const endereco = form.querySelector(".endereco").value;
-  const quantidade = form.querySelector(".quantidade").value;
-  const item = form.dataset.item;
+const carrinho = [];
+const contadorCarrinho = document.getElementById('contador-carrinho');
+const itensCarrinhoDiv = document.getElementById('itens-carrinho');
+const carrinhoDiv = document.getElementById('carrinho');
 
-  if (endereco && quantidade > 0) {
-    alert(`Pedido confirmado!\nProduto: ${item}\nEndereço: ${endereco}\nQuantidade: ${quantidade}`);
 
-    form.style.display = "none";
+function adicionarAoCarrinho(nome, preco, botao) {
+  const formulario = botao.parentElement;
+  const quantidade = parseInt(formulario.querySelector('.quantidade').value);
+  const cliente = formulario.querySelector('.nome').value;
+  const endereco = formulario.querySelector('.endereco').value;
+
+  if (!cliente || !endereco) {
+    alert("Por favor, preencha seu nome e endereço!");
+    return;
+  }
+
+  carrinho.push({ nome, preco, quantidade, cliente, endereco });
+  atualizarCarrinho();
+  formulario.style.display = "none";  
+}
+function atualizarCarrinho() {
+  contadorCarrinho.textContent = carrinho.length;
+
+  if (carrinho.length === 0) {
+    itensCarrinhoDiv.innerHTML = "Seu carrinho está vazio.";
+    return;
+  }
+
+ 
+
+  let html = "<ul>";
+  let total = 0;
+  carrinho.forEach(item => {
+    html += `<li>${item.quantidade}x ${item.nome} – R$ ${(item.preco * item.quantidade).toFixed(2)}</li>`;
+    total += item.preco * item.quantidade;
+  });
+  html += "</ul>";
+  html += `<strong>Total: R$ ${total.toFixed(2)}</strong>`;
+  itensCarrinhoDiv.innerHTML = html;
+}
+
+function mostrarCarrinho() {
+    atualizarCarrinho();
+  if (carrinhoDiv.style.display === "none" || carrinhoDiv.style.display === "") {
+    carrinhoDiv.style.display = "block"; 
   } else {
-    alert("Por favor, preencha o endereço e a quantidade.");
+    carrinhoDiv.style.display = "none"; 
   }
 }
- 
-   </script>
- 
+function adicionarPizza(botao, nomeBase) {
+  const formulario = botao.parentElement;
+  const quantidade = parseInt(formulario.querySelector('.quantidade').value);
+  const cliente = formulario.querySelector('.nome').value;
+  const endereco = formulario.querySelector('.endereco').value;
+  const tamanho = formulario.querySelector('.tamanho').value;
+
+  let preco = 0;
+  if (tamanho === "P") preco = 30.00;
+  else if (tamanho === "M") preco = 40.00;
+  else if (tamanho === "G") preco = 50.00;
+
+  const nomeCompleto = `${nomeBase} (${tamanho})`;
+
+  if (!cliente || !endereco) {
+    alert("Por favor, preencha seu nome e endereço!");
+    return;
+  }
+
+  carrinho.push({ nome: nomeCompleto, preco, quantidade, cliente, endereco });
+  atualizarCarrinho();
+  formulario.style.display = "none";
+}
+
+
+
+</script>
+
 </body>
 </html>
